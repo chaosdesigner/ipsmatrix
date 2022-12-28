@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  feature_id: one
+  feature_type_id: one
+  description_en: MyString
+  description_cz: MyString
+
+two:
+  feature_id: two
+  feature_type_id: two
+  description_en: MyString
+  description_cz: MyString
