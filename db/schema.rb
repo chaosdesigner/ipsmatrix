@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_29_224044) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_30_002651) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,9 +70,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_224044) do
     t.index ["sex_id"], name: "index_states_on_sex_id"
   end
 
-  add_foreign_key "characters", "feature_types"
-  add_foreign_key "characters", "features"
-  add_foreign_key "states", "characters"
-  add_foreign_key "states", "entities"
-  add_foreign_key "states", "sexes"
+  add_foreign_key "characters", "feature_types", on_delete: :cascade
+  add_foreign_key "characters", "features", on_delete: :cascade
+  add_foreign_key "states", "characters", on_delete: :cascade
+  add_foreign_key "states", "entities", on_delete: :cascade
+  add_foreign_key "states", "sexes", on_delete: :cascade
 end
