@@ -1,6 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-state_1:
+state1:
   id: 1
   character_id: 1
   entity_id: 3
@@ -18,7 +18,7 @@ state_1:
     zone: *1
     time: 2022-12-29 23:56:40.013236000 Z
 
-state_2:
+state2:
   id: 2
   character_id: 2
   entity_id: 4

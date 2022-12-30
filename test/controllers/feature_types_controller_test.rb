@@ -1,45 +1,47 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class FeatureTypesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @feature_type = feature_types(:feature_type_1)
+    @feature_type = feature_types(:feature_type1)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get feature_types_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_feature_type_url
     assert_response :success
   end
 
-  test "should create feature_type" do
-    assert_difference("FeatureType.count") do
+  test 'should create feature_type' do
+    assert_difference('FeatureType.count') do
       post feature_types_url, params: { feature_type: { description: @feature_type.description } }
     end
 
     assert_redirected_to feature_type_url(FeatureType.last)
   end
 
-  test "should show feature_type" do
+  test 'should show feature_type' do
     get feature_type_url(@feature_type)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_feature_type_url(@feature_type)
     assert_response :success
   end
 
-  test "should update feature_type" do
+  test 'should update feature_type' do
     patch feature_type_url(@feature_type), params: { feature_type: { description: @feature_type.description } }
     assert_redirected_to feature_type_url(@feature_type)
   end
 
-  test "should destroy feature_type" do
-    assert_difference("FeatureType.count", -1) do
+  test 'should destroy feature_type' do
+    assert_difference('FeatureType.count', -1) do
       delete feature_type_url(@feature_type)
     end
 

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class FeaturesController < ApplicationController
-  before_action :set_feature, only: %i[ show edit update destroy ]
+  before_action :set_feature, only: %i[show edit update destroy]
 
   # GET /features or /features.json
   def index
@@ -7,8 +9,7 @@ class FeaturesController < ApplicationController
   end
 
   # GET /features/1 or /features/1.json
-  def show
-  end
+  def show; end
 
   # GET /features/new
   def new
@@ -16,8 +17,7 @@ class FeaturesController < ApplicationController
   end
 
   # GET /features/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /features or /features.json
   def create
@@ -25,7 +25,7 @@ class FeaturesController < ApplicationController
 
     respond_to do |format|
       if @feature.save
-        format.html { redirect_to feature_url(@feature), notice: "Feature was successfully created." }
+        format.html { redirect_to feature_url(@feature), notice: 'Feature was successfully created.' }
         format.json { render :show, status: :created, location: @feature }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class FeaturesController < ApplicationController
   def update
     respond_to do |format|
       if @feature.update(feature_params)
-        format.html { redirect_to feature_url(@feature), notice: "Feature was successfully updated." }
+        format.html { redirect_to feature_url(@feature), notice: 'Feature was successfully updated.' }
         format.json { render :show, status: :ok, location: @feature }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class FeaturesController < ApplicationController
     @feature.destroy
 
     respond_to do |format|
-      format.html { redirect_to features_url, notice: "Feature was successfully destroyed." }
+      format.html { redirect_to features_url, notice: 'Feature was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_feature
-      @feature = Feature.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def feature_params
-      params.require(:feature).permit(:name_en, :name_cz, :order)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_feature
+    @feature = Feature.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def feature_params
+    params.require(:feature).permit(:name_en, :name_cz, :order)
+  end
 end

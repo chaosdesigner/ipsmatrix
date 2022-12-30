@@ -1,6 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-character_1:
+character1:
   id: 1
   feature_id: 1
   feature_type_id: 1
@@ -16,7 +16,7 @@ character_1:
     zone: *1
     time: 2022-12-29 23:50:02.326402000 Z
 
-character_2:
+character2:
   id: 2
   feature_id: 2
   feature_type_id: 2

@@ -1,0 +1,22 @@
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Layout/LineLength:
+  Exclude:
+    - bin/bundle
+
+Metrics/BlockLength:
+  Enabled: true
+  ExcludedMethods: [included, draw, namespace, state_machine, resources]
+  Exclude:
+    - spec/**/*
+    - db/schema.rb

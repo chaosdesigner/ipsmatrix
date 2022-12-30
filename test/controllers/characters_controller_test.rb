@@ -1,45 +1,51 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class CharactersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @character = characters(:character_1)
+    @character = characters(:character1)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get characters_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_character_url
     assert_response :success
   end
 
-  test "should create character" do
-    assert_difference("Character.count") do
-      post characters_url, params: { character: { description_cz: @character.description_cz, description_en: @character.description_en, feature_id: @character.feature_id, feature_type_id: @character.feature_type_id } }
+  test 'should create character' do
+    assert_difference('Character.count') do
+      post characters_url,
+           params: { character: { description_cz: @character.description_cz, description_en: @character.description_en,
+                                  feature_id: @character.feature_id, feature_type_id: @character.feature_type_id } }
     end
 
     assert_redirected_to character_url(Character.last)
   end
 
-  test "should show character" do
+  test 'should show character' do
     get character_url(@character)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_character_url(@character)
     assert_response :success
   end
 
-  test "should update character" do
-    patch character_url(@character), params: { character: { description_cz: @character.description_cz, description_en: @character.description_en, feature_id: @character.feature_id, feature_type_id: @character.feature_type_id } }
+  test 'should update character' do
+    patch character_url(@character),
+          params: { character: { description_cz: @character.description_cz, description_en: @character.description_en,
+                                 feature_id: @character.feature_id, feature_type_id: @character.feature_type_id } }
     assert_redirected_to character_url(@character)
   end
 
-  test "should destroy character" do
-    assert_difference("Character.count", -1) do
+  test 'should destroy character' do
+    assert_difference('Character.count', -1) do
       delete character_url(@character)
     end
 

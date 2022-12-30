@@ -1,6 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-entity_3:
+entity3:
   id: 3
   name: Ips typographus
   name_en: European spruce bark beetle
@@ -17,7 +17,7 @@ entity_3:
     time: 2022-12-29 23:34:37.236614000 Z
   authority: Linnaeus 1758
 
-entity_4:
+entity4:
   id: 4
   name: Ips cembrae
   name_en: Larch bark beetle

@@ -1,6 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-feature_1:
+feature1:
   id: 1
   name_en: Feature A
   name_cz: Vlastnost A
@@ -15,7 +15,7 @@ feature_1:
     zone: *1
     time: 2022-12-29 23:38:23.872942000 Z
 
-feature_2:
+feature2:
   id: 2
   name_en: Feature B
   name_cz: Vlastnost B

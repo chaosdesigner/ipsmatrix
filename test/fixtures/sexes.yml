@@ -1,6 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-sex_1:
+sex1:
   id: 1
   description_en: both
   description_cz: bez rozdílu
@@ -14,7 +14,7 @@ sex_1:
     zone: *1
     time: 2022-12-27 23:39:55.178878000 Z
 
-sex_2:
+sex2:
   id: 2
   description_en: males
   description_cz: samečci
@@ -28,7 +28,7 @@ sex_2:
     zone: *1
     time: 2022-12-27 23:39:55.180525000 Z
 
-sex_3:
+sex3:
   id: 3
   description_en: females
   description_cz: samičky

@@ -1,6 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-feature_type_1:
+feature_type1:
   id: 1
   description: numeric
   created_at: !ruby/object:ActiveSupport::TimeWithZone
@@ -13,7 +13,7 @@ feature_type_1:
     zone: *1
     time: 2022-12-27 23:39:55.145395000 Z
 
-feature_type_2:
+feature_type2:
   id: 2
   description: selection
   created_at: !ruby/object:ActiveSupport::TimeWithZone
