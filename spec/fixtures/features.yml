@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+feature1:
+  id: 1
+  name_en: Feature A
+  name_cz: Vlastnost A
+  order: 1
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:38:23.872942000 Z
+    zone: &1 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: 2022-12-29 23:38:23.872942000 Z
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:38:23.872942000 Z
+    zone: *1
+    time: 2022-12-29 23:38:23.872942000 Z
+
+feature2:
+  id: 2
+  name_en: Feature B
+  name_cz: Vlastnost B
+  order: 2
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:38:44.818476000 Z
+    zone: &1 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: 2022-12-29 23:38:44.818476000 Z
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:38:44.818476000 Z
+    zone: *1
+    time: 2022-12-29 23:38:44.818476000 Z

@@ -1,0 +1,43 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+sex1:
+  id: 1
+  description_en: both
+  description_cz: bez rozdílu
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-27 23:39:55.178878000 Z
+    zone: &1 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: 2022-12-27 23:39:55.178878000 Z
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-27 23:39:55.178878000 Z
+    zone: *1
+    time: 2022-12-27 23:39:55.178878000 Z
+
+sex2:
+  id: 2
+  description_en: males
+  description_cz: samečci
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-27 23:39:55.180525000 Z
+    zone: &1 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: 2022-12-27 23:39:55.180525000 Z
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-27 23:39:55.180525000 Z
+    zone: *1
+    time: 2022-12-27 23:39:55.180525000 Z
+
+sex3:
+  id: 3
+  description_en: females
+  description_cz: samičky
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-27 23:39:55.182187000 Z
+    zone: &1 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: 2022-12-27 23:39:55.182187000 Z
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-27 23:39:55.182187000 Z
+    zone: *1
+    time: 2022-12-27 23:39:55.182187000 Z

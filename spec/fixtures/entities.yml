@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+entity3:
+  id: 3
+  name: Ips typographus
+  name_en: European spruce bark beetle
+  name_cz: Lýkožrout smrkový
+  order: 1
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:34:37.236614000 Z
+    zone: &1 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: 2022-12-29 23:34:37.236614000 Z
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:34:37.236614000 Z
+    zone: *1
+    time: 2022-12-29 23:34:37.236614000 Z
+  authority: Linnaeus 1758
+
+entity4:
+  id: 4
+  name: Ips cembrae
+  name_en: Larch bark beetle
+  name_cz: Lýkožrout modřínový
+  order: 2
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:35:09.379368000 Z
+    zone: &1 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: 2022-12-29 23:35:09.379368000 Z
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:35:09.379368000 Z
+    zone: *1
+    time: 2022-12-29 23:35:09.379368000 Z
+  authority: Heer 1836
