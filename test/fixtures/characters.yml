@@ -1,13 +1,33 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  feature_id: one
-  feature_type_id: one
-  description_en: MyString
-  description_cz: MyString
+character_1:
+  id: 1
+  feature_id: 1
+  feature_type_id: 1
+  description_en: Character A
+  description_cz: Znak A
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:50:02.326402000 Z
+    zone: &1 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: 2022-12-29 23:50:02.326402000 Z
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:50:02.326402000 Z
+    zone: *1
+    time: 2022-12-29 23:50:02.326402000 Z
 
-two:
-  feature_id: two
-  feature_type_id: two
-  description_en: MyString
-  description_cz: MyString
+character_2:
+  id: 2
+  feature_id: 2
+  feature_type_id: 2
+  description_en: Character B
+  description_cz: Znak B
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:50:26.542553000 Z
+    zone: &1 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: 2022-12-29 23:50:26.542553000 Z
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:50:26.542553000 Z
+    zone: *1
+    time: 2022-12-29 23:50:26.542553000 Z

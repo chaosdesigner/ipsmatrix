@@ -1,17 +1,37 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  character_id: one
-  entity_id: one
-  sex_id: one
+state_1:
+  id: 1
+  character_id: 1
+  entity_id: 3
+  sex_id: 1
   value_min: 1.5
-  value_ma: 1.5
-  image: MyString
+  value_max: 2.5
+  image: path
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:56:40.013236000 Z
+    zone: &1 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: 2022-12-29 23:56:40.013236000 Z
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:56:40.013236000 Z
+    zone: *1
+    time: 2022-12-29 23:56:40.013236000 Z
 
-two:
-  character_id: two
-  entity_id: two
-  sex_id: two
-  value_min: 1.5
-  value_ma: 1.5
-  image: MyString
+state_2:
+  id: 2
+  character_id: 2
+  entity_id: 4
+  sex_id: 2
+  value_min:
+  value_max:
+  image: path
+  created_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:57:23.003116000 Z
+    zone: &1 !ruby/object:ActiveSupport::TimeZone
+      name: Etc/UTC
+    time: 2022-12-29 23:57:23.003116000 Z
+  updated_at: !ruby/object:ActiveSupport::TimeWithZone
+    utc: 2022-12-29 23:57:23.003116000 Z
+    zone: *1
+    time: 2022-12-29 23:57:23.003116000 Z
