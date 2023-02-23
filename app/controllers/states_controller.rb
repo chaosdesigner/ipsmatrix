@@ -5,7 +5,11 @@ class StatesController < ApplicationController
 
   # GET /states or /states.json
   def index
+    @characters = Character.all.order('feature_id, seq')
+    @entities = Entity.all.order('seq')
+    @features = Feature.all.order('seq')
     @states = State.all
+    @sexes = Sex.all
   end
 
   # GET /states/1 or /states/1.json

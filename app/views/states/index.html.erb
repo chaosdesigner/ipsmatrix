@@ -1,6 +1,51 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>States</h1>
+<h1>Maticový determinační klíč lýkožroutů rodu Ips České republiky</h1>
+
+<div class="scrollable-table">
+  <table class="table table-striped table-header-rotated">
+    <thead>
+      <tr>
+        <!-- First column header is not rotated -->
+        <th></th>
+        <!-- Following headers are rotated -->
+        <% @entities.each do |entity| %>
+          <% if (entity.seq == 1) %>
+            <th class="rotate-45"><div><span><%= entity.name %> - <%= @sexes[2].send(@desc_attribute) %></span></div></th>
+            <th class="rotate-45"><div><span><%= entity.name %> - <%= @sexes[1].send(@desc_attribute) %></span></div></th>
+          <% else %>
+            <th class="rotate-45"><div><span><%= entity.name %></span></div></th>
+          <% end %>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+
+      <% @features.each do |feature| %>
+
+        <tr>
+          <th class="row-header feature" colspan="9"><%= feature.send(@name_attribute) %></th>
+        </tr>
+
+        <% Character.where(feature_id: feature.id).each do |character| %>
+          <tr>
+            <th class="row-header">&nbsp;-&nbsp;<%= character.send(@desc_attribute) %></th>
+            <% @entities.each do |entity| %>
+              <% if (entity.seq == 1) %>
+                <td><input name="column1[]" type="checkbox" value="row1-column1"></td>
+                <td><input name="column1[]" type="checkbox" value="row1-column1"></td>
+              <% else %>
+              <td><input name="column1[]" type="checkbox" value="row1-column1"></td>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+       
+      <% end %>
+
+    </tbody>
+  </table>
+</div>
 
 <div id="states">
   <% @states.each do |state| %>
