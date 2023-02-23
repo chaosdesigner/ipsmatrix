@@ -13,6 +13,7 @@ Metrics/PerceivedComplexity:
 Layout/LineLength:
   Exclude:
     - bin/bundle
+    - db/seeds.rb
 
 Metrics/BlockLength:
   Enabled: true
