@@ -5,7 +5,6 @@ class StatesController < ApplicationController
 
   # GET /states or /states.json
   def index
-    @characters = Character.all.order('feature_id, seq')
     @entities = Entity.all.order('seq')
     @features = Feature.all.order('seq')
     @states = State.all
@@ -18,10 +17,13 @@ class StatesController < ApplicationController
   # GET /states/new
   def new
     @state = State.new
+    @character = Character.find(params['character'])
   end
 
   # GET /states/1/edit
-  def edit; end
+  def edit
+    @character = @state.character
+  end
 
   # POST /states or /states.json
   def create
@@ -29,7 +31,7 @@ class StatesController < ApplicationController
 
     respond_to do |format|
       if @state.save
-        format.html { redirect_to state_url(@state), notice: 'State was successfully created.' }
+        format.html { redirect_to states_url, notice: 'Stav byl vytvořen.' }
         format.json { render :show, status: :created, location: @state }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +44,7 @@ class StatesController < ApplicationController
   def update
     respond_to do |format|
       if @state.update(state_params)
-        format.html { redirect_to state_url(@state), notice: 'State was successfully updated.' }
+        format.html { redirect_to states_url, notice: 'Stav byl uložen.' }
         format.json { render :show, status: :ok, location: @state }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +58,7 @@ class StatesController < ApplicationController
     @state.destroy
 
     respond_to do |format|
-      format.html { redirect_to states_url, notice: 'State was successfully destroyed.' }
+      format.html { redirect_to states_url, notice: 'Stav byl odstraněn.' }
       format.json { head :no_content }
     end
   end

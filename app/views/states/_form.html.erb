@@ -12,36 +12,50 @@
   <% end %>
 
   <div>
-    <%= form.label :character_id, style: "display: block" %>
-    <%= form.collection_select :character_id, Character.all, :id, :description_cz %>
+    <h3>Skupina znaků:</h3>
+    <%= @character.feature.name_cz %>
   </div>
 
   <div>
-    <%= form.label :entity_id, style: "display: block" %>
-    <%= form.collection_select :entity_id, Entity.all, :id, :name %>
+    <h3>Znak:</h3>
+    <%= form.hidden_field :character_id, value: params['character'] ? Character.find(params['character']).id : @state.character.id %>
+    <%= @character.description_cz %>
   </div>
 
   <div>
-    <%= form.label :sex_id, style: "display: block" %>
-    <%= form.collection_select :sex_id, Sex.all, :id, :description_cz %>
+    <h3>Druh:</h3>
+    <%= form.hidden_field :entity_id, value: params['entity'] ? Entity.find(params['entity']).id : @state.entity.id %>
+    <%= params['entity'] ? Entity.find(params['entity']).name : @state.entity.name %>
   </div>
 
   <div>
-    <%= form.label :value_min, style: "display: block" %>
-    <%= form.text_field :value_min %>
+    <h3>Pohlaví:</h3>
+    <%= form.hidden_field :sex_id, value: params['sex'] ? Sex.find(params['sex']).id : @state.sex.id %>
+    <%= params['sex'] ? Sex.find(params['sex']).description_cz : @state.sex.description_cz %>
   </div>
 
-  <div>
-    <%= form.label :value_max, style: "display: block" %>
-    <%= form.text_field :value_max %>
-  </div>
+  <% if @character.feature_type_id === 1 %>
+
+    <div>
+      <%= form.label :value_min, style: "display: block" %>
+      <%= form.text_field :value_min %>
+    </div>
+
+    <div>
+      <%= form.label :value_max, style: "display: block" %>
+      <%= form.text_field :value_max %>
+    </div>
+
+  <% else %>
+
+    <div>
+      <h3>Fotografie znaku:</h3>
+      <%= form.file_field :image %>
+    </div>
+
+  <% end %>
 
   <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <br /><%= form.submit %>
   </div>
 <% end %>
