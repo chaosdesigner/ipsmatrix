@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :entity_id, style: "display: block" %>
-    <%= form.collection_select :entity_id, Entity.all, :id, :name_cz %>
+    <%= form.collection_select :entity_id, Entity.all, :id, :name %>
   </div>
 
   <div>
@@ -38,7 +38,7 @@
 
   <div>
     <%= form.label :image, style: "display: block" %>
-    <%= form.text_field :image %>
+    <%= form.file_field :image %>
   </div>
 
   <div>
