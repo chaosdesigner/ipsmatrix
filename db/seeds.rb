@@ -90,8 +90,8 @@ Feature.create!([{
                  },
                  {
                    id: 7,
-                   name_en: 'Největší zub na okraji prohloubeniny',
-                   name_cz: 'Largest declivital spine',
+                   name_en: 'Largest declivital spine',
+                   name_cz: 'Největší zub na okraji prohloubeniny',
                    order: 7
                  },
                  {
