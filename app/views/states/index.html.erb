@@ -3,7 +3,7 @@
 <h1>Maticový determinační klíč lýkožroutů rodu Ips České republiky</h1>
 
 <div class="scrollable-table">
-  <table class="table table-striped table-header-rotated">
+  <table class="table table-striped table-header-rotated center">
     
     <!-- Header -->
 
@@ -29,8 +29,8 @@
 
       <% @features.each do |feature| %>
 
-        <tr>
-          <th class="row-header feature" colspan="9"><%= feature.send(@name_attribute) %></th>
+        <tr class="feature_header">
+          <th class="row-header feature" colspan="9">&nbsp;<%= feature.send(@name_attribute) %></th>
         </tr>
 
         <% Character.where(feature_id: feature.id).each do |character| %>

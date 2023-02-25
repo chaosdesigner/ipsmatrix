@@ -1,9 +1,11 @@
 <h1>Nový stav</h1>
 
-<%= render "form", state: @state %>
+<div id="form-container">
+  <%= render "form", state: @state %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Zpět na klíč", states_path %>
+  <div>
+    <%= link_to "Zpět na klíč", states_path %>
+  </div>
 </div>

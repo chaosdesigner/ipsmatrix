@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+html * {
+  color: #000 !important;
+  font-family: Arial !important;
+}
+
+.centered {
+  text-align: center;
+}
