@@ -54,8 +54,8 @@ Feature.destroy_all
 
 Feature.create!([{
                   id: 1,
-                  name_en: 'Body length',
-                  name_cz: 'Velikost',
+                  name_en: 'Body',
+                  name_cz: 'Tělo',
                   order: 1
                 },
                  {
@@ -66,8 +66,8 @@ Feature.create!([{
                  },
                  {
                    id: 3,
-                   name_en: 'Elytral length/width ratio',
-                   name_cz: 'Poměr délky krovek k jejich šířce',
+                   name_en: 'Elytral length',
+                   name_cz: 'Délka krovek',
                    order: 3
                  },
                  {
@@ -120,8 +120,8 @@ Character.destroy_all
 Character.create!([{
                     feature_id: 1,
                     feature_type_id: 1,
-                    description_en: '',
-                    description_cz: '',
+                    description_en: 'body length [mm]',
+                    description_cz: 'délka [mm]',
                     order: 1
                   },
                    {
@@ -169,8 +169,8 @@ Character.create!([{
                    {
                      feature_id: 3,
                      feature_type_id: 1,
-                     description_en: '',
-                     description_cz: '',
+                     description_en: 'elytral length/width ratio',
+                     description_cz: 'poměr délky krovek k jejich šířce',
                      order: 1
                    },
                    {
