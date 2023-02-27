@@ -50,10 +50,12 @@
 
     <div>
       <h3>Fotografie znaku:</h3>
-      <% if (@state.image) %>
-        <%= image_tag url_for(@state.image), size: "300x300" %><br /> 
+      <% if (!@state.id.nil?) %>
+        <%= image_tag url_for(@state.image), size: "300x300" %><br />
+        <%= form.file_field :image %>
+      <% else %>
+        <%= form.file_field :image, :required => true %>
       <% end %>
-      <%= form.file_field :image, :required => true %>
     </div>
 
   <% end %>

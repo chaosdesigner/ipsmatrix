@@ -14,6 +14,6 @@ module StatesHelper
         numeric_values = "[#{state.first.value_min}, #{state.first.value_max}]"
       end
     end
-    "<input#{checked}type=\"checkbox\" class=\"key_checkbox\" onClick=\"window.location.assign('#{form_url}');\"><br />".html_safe + numeric_values
+    "<input#{checked}type=\"checkbox\" class=\"key-checkbox\" onClick=\"window.location.assign('#{form_url}');\"><br />".html_safe + numeric_values
   end
 end
