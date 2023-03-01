@@ -1,21 +1,35 @@
 <h3>Možné druhy</h3>
 <table>
   <tr>
-    <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
-    <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
-    <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
-    <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
-    <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
-    <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
-    <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+    <% @entities.each do |entity| %>
+      <% if (entity.seq == 1) %>
+        <% if session[:query].include? "#{entity.id}_2" %>
+          <td><img id="img_<%= entity.id %>" class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+        <% end %>
+        <% if session[:query].include? "#{entity.id}_3" %>
+          <td><img id="img_<%= entity.id %>" class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+        <% end %>
+      <% else %>
+        <% if session[:query].include? "#{entity.id}_1" %>
+          <td><img id="img_<%= entity.id %>" class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+        <% end %>
+      <% end %>
+    <% end %>
   </tr>
   <tr>
-    <td>Ips acuminatus - samičky</td>
-    <td>Ips acuminatus - samečci</td>
-    <td>Ips amitinus</td>
-    <td>Ips cembrae</td>
-    <td>Ips duplicatus</td>
-    <td>Ips sexdentatus</td>
-    <td>Ips typographus</td>
+    <% @entities.each do |entity| %>
+      <% if (entity.seq == 1) %>
+        <% if session[:query].include? "#{entity.id}_2" %>
+          <td><%= entity.name %> - <%= @sexes[2].send(@desc_attribute) %></td>
+        <% end %>
+        <% if session[:query].include? "#{entity.id}_3" %>
+          <td><%= entity.name %> - <%= @sexes[1].send(@desc_attribute) %></td>
+        <% end %>
+      <% else %>
+      <% if session[:query].include? "#{entity.id}_1" %>
+          <td><%= entity.name %></td>
+        <% end %>
+      <% end %>
+    <% end %>
   </tr>
 </table>

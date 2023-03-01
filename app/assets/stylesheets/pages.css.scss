@@ -12,7 +12,7 @@ img.thumbnail {
   width: 100px;
   height: 100px;
   border: 1px solid var(--leaf6);
-  margin-left: 10px;
+  margin: 0 5px;
 }
 
 .header {
@@ -166,7 +166,6 @@ img.thumbnail {
   color: var(--leaf3);
 }
 #output table {
-  width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
