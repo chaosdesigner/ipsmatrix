@@ -1,0 +1,260 @@
+h1 {
+  margin: 0;
+  text-align: center;
+}
+h2, h3 {
+  margin: 4px;
+  margin-bottom: -10px;
+}
+
+img.thumbnail {
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--leaf6);
+  margin-left: 10px;
+}
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  opacity: 1;
+  height: 50px;
+  background: var(--leaf4);
+}
+.block {
+  text-align: center;
+  background: var(--leaf4);
+  color: var(--leaf6);
+}
+.block::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+  background: rgb(128, 128, 128);
+  width: 5px;
+}
+.centered {
+  display: inline-block;
+  vertical-align: middle;
+}
+.child {
+  width: 800px;
+  padding: 15px 20px 0 20px;
+  margin: 20px 0px;
+  border: 1px solid black;
+  background: var(--leaf2);
+  text-align: left;
+  border-radius: 5px;
+  min-height: 80px;
+}
+.child table {
+  width: 100%;
+  margin: 0;
+  margin-bottom: 10px;
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: grey;
+}
+.child p {
+  padding: 10px;
+  float: left;
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  width: 300px;
+}
+
+.rangeValue {
+  width: 30px;
+  margin: 0 20px;
+  text-align: right;
+}
+
+.state-description-hover {
+  text-align: right;
+  height: 20px;
+  vertical-align: top;
+}
+
+.slider {
+  position: absolute;
+  top :50%;
+  left: 65%;
+  transform: translate(-52%,-50%);
+  width: auto;
+  height: 60px;
+  padding-left: 40px;
+  background: #fcfcfc;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 40px #7E6D5766;
+}
+.slider p {
+  padding-left: 20px;
+  text-align: right;
+}
+.slider input[type=”range”] {
+  width: 420px;
+  height: 2px;
+  background: #7E6D57;
+  border: none;
+  outline: none;
+}
+.slider input[type=”range”]::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  width: 30px;
+  height: 30px;
+  background: #fcfcfc;
+  border: 2px solid #7E6D57;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.slider input[type=”range”]::-webkit-slider-thumb:hover {
+  background: #7E6D57;
+}
+
+.child table td {
+  vertical-align: top;
+  border: none;
+  font-size: inherit;
+}
+.child table td.image_cell {
+  width: 100px;
+  text-align: center;
+}
+.child table td.image_cell img {
+  opacity: 0.5;
+}
+
+.child table td.selected_state {
+  height: 30px;
+  text-align: right;
+  padding-top: 5px;
+  font-size: 12px;
+  line-height: 30px;
+}
+.child table td.selected_state span {
+  color: var(--leaf3);
+  padding: 5px;
+  background-color: var(--leaf6);
+  border: 2px solid var(--leaf1);
+}
+#output {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  opacity: 1;
+  height: 250px;
+  background-image: none;
+  background-color: var(--leaf5);
+  border-top: 1px solid;
+  text-align: center;
+  color: var(--leaf3);
+}
+#output table {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#output table td {
+  font-size: 12px;
+  font-weight: bold;
+  width: 100px;
+  border: none;
+  vertical-align: top;
+}
+#output h3 {
+  margin: 20px;
+}
+@media (width: 1194px) and (height: 688px) {}
+
+#header {
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  height: 50px;
+  background-color: var(--leaf4);
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: var(--leaf6);
+  color: var(--leaf3);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav p {
+  padding: 0 20px;
+  font-size: 13px;
+}
+
+.sidenav h3 {
+  margin-left: 20px;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.help-icon {
+  font-size: 30px;
+  cursor: pointer;
+  color: var(--leaf6);
+  margin: 10px;
+}
+
+.language-icon {
+  font-size: 21px;
+  padding: 10px 15px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* padding-bottom and top for image */
+.mfp-no-margins img.mfp-img {
+  padding: 0;
+}
+/* position of shadow behind the image */
+.mfp-no-margins .mfp-figure:after {
+  top: 0;
+  bottom: 0;
+}
+/* padding for main container */
+.mfp-no-margins .mfp-container {
+  padding: 0;
+}

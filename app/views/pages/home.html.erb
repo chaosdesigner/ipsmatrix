@@ -1,0 +1,192 @@
+<script gwd-served-sizes="" type="application/json">["1194x688"]</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.selected_state span').hide();
+
+    $('.image_cell').hover(
+        function () {
+          $(this).closest('table').find('.state-description-hover').html($(this).children(':first').attr('title'));
+        }, 
+        function () {
+          $(this).closest('table').find('.state-description-hover').html('');
+        }
+      );
+    $('.image-popup-vertical-fit').mouseout(
+        function () {
+          $(this).closest('table').find('.state-description-hover').html('');
+        }
+      );
+    $('.image_cell input').change(
+        function () {
+          id = $(this).attr('id').replace('checkbox_', '');
+          $('#state_' + id).toggle();
+          if ($('#image_' + id).css('opacity') === '1') {
+            $('#image_' + id).css({ 'opacity' : 0.5 });
+          } else {
+            $('#image_' + id).css({ 'opacity' : 1 });
+          }
+        }
+      );
+    $('.slider input').on('input change paste keyup', function() {   
+        $(this).closest('.slider').find('.rangeValue').html($(this).val());
+    });
+  });
+  function openHelp() {
+    document.getElementById('mySidenav').style.width = '250px';
+  }
+  function closeHelp() {
+    document.getElementById('mySidenav').style.width = '0';
+  }
+</script>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeHelp()">&times;</a>
+    <h3>Help</h3>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque ipsum. Curabitur bibendum justo non orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Integer in sapien. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Mauris elementum mauris vitae tortor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo. Fusce tellus.</p>
+    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Etiam commodo dui eget wisi. Aliquam erat volutpat. Nullam dapibus fermentum ipsum. Nunc auctor. Duis condimentum augue id magna semper rutrum. Fusce nibh. Nullam eget nisl. Nullam rhoncus aliquam metus. Proin mattis lacinia justo. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Praesent vitae arcu tempor neque lacinia pretium. Aenean id metus id velit ullamcorper pulvinar. Nunc tincidunt ante vitae massa. Donec quis nibh at felis congue commodo. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Aliquam ornare wisi eu metus. Curabitur vitae diam non enim vestibulum interdum.</p>
+  </div>  
+
+  <div id="header">
+    <span class="help-icon" onclick="openHelp()">&#9776;</span>
+    <span style="float: right;" class="language-icon">EN</span>
+  </div>
+  <div class="block">
+    <div class="centered">
+      <h1>
+        Maticový determinační klíč<br />lýkožroutů rodu Ips České republiky
+      </h1>
+
+      <% @features.each do |feature| %>
+        <% @characters = Character.where(feature_id: feature.id) %>
+        
+        <% if (@characters.first.feature_type_id == 1) %>
+          <% sliderVals = getSliderValues(State.where(character_id: @characters.first.id)) %>
+
+          <!-- Numeric value box -->
+
+          <div class="child">
+            <h3><%= feature.send(@name_attribute) %></h3>
+            <div class="slider">
+              <p><%= @characters.first.send(@desc_attribute) %>:</p><input type="range" step="0.01" value="<%= sprintf "%.2f", sliderVals[2] %>" min="<%= sprintf "%.2f", sliderVals[0] %>" max="<%= sprintf "%.2f", sliderVals[1] %>">
+              <div class="rangeValue"><%= sprintf "%.2f", sliderVals[2] %></div>
+            </div>
+          </div>
+
+        <% else %>
+
+          <!-- Selection box -->
+
+          <div class="child">
+            <h3><%= feature.send(@name_attribute) %></h3>  
+            <table>
+              <tr>
+                <td colspan="<%= @characters.count + 1 %>"><div class="state-description-hover"></div></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+
+                <% @characters.each do |character| %>
+                  <% state = State.where(character_id: character.id).first %>
+
+                  <td class="image_cell">
+                    <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= character.send(@desc_attribute) %>">
+                      <%= image_tag url_for(state.image), class: "thumbnail galleryimages", id: "image_#{state.id}"%>
+                    </a>
+                  </td>                
+
+                <% end %>
+
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+
+                <% @characters.each do |character| %>
+                  <% state = State.where(character_id: character.id).first %>
+
+                  <td class="image_cell"><input id="checkbox_<%= state.id %>" type="checkbox" /></td>            
+
+                <% end %>
+
+              </tr>
+              <tr>
+
+                <td colspan="<%= @characters.count + 1 %>" class="selected_state">
+                <% @characters.each do |character| %>
+                  
+                  <% state = State.where(character_id: character.id).first %>
+                  <span id="state_<%= state.id %>"><%= character.send(@desc_attribute) %></span>   
+
+                <% end %>
+
+              </tr>
+            </table>
+          </div>
+
+        <% end %>
+      <% end %>
+  </div>
+  <div id="output">
+    <h3>Možné druhy</h3>
+    <table>
+      <tr>
+        <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+        <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+        <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+        <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+        <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+        <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+        <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+      </tr>
+      <tr>
+        <td>Ips acuminatus - samičky</td>
+        <td>Ips acuminatus - samečci</td>
+        <td>Ips amitinus</td>
+        <td>Ips cembrae</td>
+        <td>Ips duplicatus</td>
+        <td>Ips sexdentatus</td>
+        <td>Ips typographus</td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+  $(document).ready(function() {
+
+    $('.image-popup-vertical-fit').magnificPopup({
+      type: 'image',
+      closeOnContentClick: true,
+      mainClass: 'mfp-img-mobile',
+      image: {
+        verticalFit: true
+      }
+      
+    });
+  
+    $('.image-popup-fit-width').magnificPopup({
+      type: 'image',
+      closeOnContentClick: true,
+      image: {
+        verticalFit: false
+      }
+    });
+  
+    $('.image-popup-no-margins').magnificPopup({
+      type: 'image',
+      closeOnContentClick: true,
+      closeBtnInside: false,
+      fixedContentPos: true,
+      mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+      image: {
+        verticalFit: true
+      },
+      zoom: {
+        enabled: true,
+        duration: 300 // don't foget to change the duration also in CSS
+      }
+    });
+  
+  });
+  </script>
+</body>
+
+</html>

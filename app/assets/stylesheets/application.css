@@ -14,11 +14,29 @@
  *= require_self
  */
 
-html * {
-  color: #000 !important;
-  font-family: Arial !important;
+:root {
+  --leaf1: #ecede8;
+  --leaf2: #e4e6d9;
+  --leaf3: #c0cfb2;
+  --leaf4: #8ba888;
+  --leaf5: #49654e;
+  --leaf6: #253528;
 }
 
-.centered {
-  text-align: center;
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--leaf1);
+}
+
+body {
+  background-color: transparent;
+  transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transform-style: preserve-3d;
+}
+
+body * {
+  transform-style: preserve-3d;
 }
