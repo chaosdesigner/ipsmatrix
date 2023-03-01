@@ -2,6 +2,7 @@ h1 {
   margin: 0;
   text-align: center;
 }
+
 h2, h3 {
   margin: 4px;
   margin-bottom: -10px;
@@ -13,6 +14,7 @@ img.thumbnail {
   border: 1px solid var(--leaf6);
   margin-left: 10px;
 }
+
 .header {
   position: sticky;
   top: 0;
@@ -21,11 +23,13 @@ img.thumbnail {
   height: 50px;
   background: var(--leaf4);
 }
+
 .block {
   text-align: center;
   background: var(--leaf4);
   color: var(--leaf6);
 }
+
 .block::before {
   content: "";
   display: inline-block;
@@ -35,10 +39,12 @@ img.thumbnail {
   background: rgb(128, 128, 128);
   width: 5px;
 }
+
 .centered {
   display: inline-block;
   vertical-align: middle;
 }
+
 .child {
   width: 800px;
   padding: 15px 20px 0 20px;
@@ -59,6 +65,32 @@ img.thumbnail {
   text-indent: initial;
   border-spacing: 2px;
   border-color: grey;
+}
+.child table td {
+  vertical-align: top;
+  border: none;
+  font-size: inherit;
+}
+.child table td.image_cell {
+  width: 100px;
+  text-align: center;
+}
+.child table td.image_cell img {
+  opacity: 0.5;
+}
+
+.child table td.selected_state {
+  height: 30px;
+  text-align: right;
+  padding-top: 5px;
+  font-size: 12px;
+  line-height: 30px;
+}
+.child table td.selected_state span {
+  color: var(--leaf3);
+  padding: 5px;
+  background-color: var(--leaf6);
+  border: 2px solid var(--leaf1);
 }
 .child p {
   padding: 10px;
@@ -121,32 +153,6 @@ img.thumbnail {
   background: #7E6D57;
 }
 
-.child table td {
-  vertical-align: top;
-  border: none;
-  font-size: inherit;
-}
-.child table td.image_cell {
-  width: 100px;
-  text-align: center;
-}
-.child table td.image_cell img {
-  opacity: 0.5;
-}
-
-.child table td.selected_state {
-  height: 30px;
-  text-align: right;
-  padding-top: 5px;
-  font-size: 12px;
-  line-height: 30px;
-}
-.child table td.selected_state span {
-  color: var(--leaf3);
-  padding: 5px;
-  background-color: var(--leaf6);
-  border: 2px solid var(--leaf1);
-}
 #output {
   position: sticky;
   bottom: 0;
@@ -197,7 +203,6 @@ img.thumbnail {
   transition: 0.5s;
   padding-top: 60px;
 }
-
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -206,20 +211,16 @@ img.thumbnail {
   display: block;
   transition: 0.3s;
 }
-
 .sidenav p {
   padding: 0 20px;
   font-size: 13px;
 }
-
 .sidenav h3 {
   margin-left: 20px;
 }
-
 .sidenav a:hover {
   color: #f1f1f1;
 }
-
 .sidenav .closebtn {
   position: absolute;
   top: 0;
