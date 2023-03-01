@@ -25,18 +25,33 @@
           } else {
             $('#image_' + id).css({ 'opacity' : 1 });
           }
+          $('#output').html("<%= j (render partial: 'output') %>");
         }
       );
     $('.slider input').on('input change paste keyup', function() {   
         $(this).closest('.slider').find('.rangeValue').html($(this).val());
+        $.ajax({url: "/pages/output", data: $(this).attr('id') + '=' + $(this).val(), success: function(result) {
+          $("#output").html(result);
+        }});
+    });
+    $('.image_cell input').click(
+      function () {
+        data = $(this).is(":checked") ? $(this).attr('id') + '=1' : $(this).attr('id') + '=0'
+        $.ajax({url: "/pages/output", data: data, success: function(result) {
+          $("#output").html(result);
+        }
+      });
     });
   });
+  
   function openHelp() {
     document.getElementById('mySidenav').style.width = '250px';
   }
   function closeHelp() {
     document.getElementById('mySidenav').style.width = '0';
   }
+
+
 </script>
 
   <div id="mySidenav" class="sidenav">
@@ -67,7 +82,7 @@
           <div class="child">
             <h3><%= feature.send(@name_attribute) %></h3>
             <div class="slider">
-              <p><%= @characters.first.send(@desc_attribute) %>:</p><input type="range" step="0.01" value="<%= sprintf "%.2f", sliderVals[2] %>" min="<%= sprintf "%.2f", sliderVals[0] %>" max="<%= sprintf "%.2f", sliderVals[1] %>">
+              <p><%= @characters.first.send(@desc_attribute) %>:</p><input id="character_<%= @characters.first.id %>" type="range" step="0.01" value="<%= sprintf "%.2f", sliderVals[2] %>" min="<%= sprintf "%.2f", sliderVals[0] %>" max="<%= sprintf "%.2f", sliderVals[1] %>">
               <div class="rangeValue"><%= sprintf "%.2f", sliderVals[2] %></div>
             </div>
           </div>
@@ -126,27 +141,7 @@
       <% end %>
   </div>
   <div id="output">
-    <h3>Možné druhy</h3>
-    <table>
-      <tr>
-        <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
-        <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
-        <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
-        <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
-        <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
-        <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
-        <td><img class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
-      </tr>
-      <tr>
-        <td>Ips acuminatus - samičky</td>
-        <td>Ips acuminatus - samečci</td>
-        <td>Ips amitinus</td>
-        <td>Ips cembrae</td>
-        <td>Ips duplicatus</td>
-        <td>Ips sexdentatus</td>
-        <td>Ips typographus</td>
-      </tr>
-    </table>
+    <%= render partial: 'output' %>
   </div>
 
   <script>
