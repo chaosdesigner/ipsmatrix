@@ -1,0 +1,13 @@
+  <h3>Druhy rodu Ips</h3>
+  <table>
+    <tr>
+      <% @entities.each do |entity| %>
+        <td><img id="img_<%= entity.id %>" class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+      <% end %>
+    </tr>
+    <tr>
+      <% @entities.each do |entity| %>
+        <td><%= entity.name %></td>
+      <% end %>
+    </tr>
+  </table>

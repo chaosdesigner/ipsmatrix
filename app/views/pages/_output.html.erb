@@ -1,36 +1,42 @@
-<h3>Možné druhy</h3>
-<table>
-  <tr>
-    <% @entities.each do |entity| %>
-      <% if (entity.seq == 1) %>
-        <% if session[:query].include? "#{entity.id}_2" %>
-          <td><img id="img_<%= entity.id %>" class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+  <h3>Vybrané druhy</h3>
+
+  <% if session[:query] === [] %>
+    <img id="no-results" src="images/stop-icon-13421.png">
+  <% else %>
+    <table>
+      <tr>
+        <% @entities.each do |entity| %>
+          <% if (entity.seq == 1) %>
+            <% if session[:query].include? "#{entity.id}_2" %>
+              <td><img id="img_<%= entity.id %>" class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+            <% end %>
+            <% if session[:query].include? "#{entity.id}_3" %>
+              <td><img id="img_<%= entity.id %>" class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+            <% end %>
+          <% else %>
+            <% if session[:query].include? "#{entity.id}_1" %>
+              <td><img id="img_<%= entity.id %>" class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+            <% end %>
+          <% end %>
         <% end %>
-        <% if session[:query].include? "#{entity.id}_3" %>
-          <td><img id="img_<%= entity.id %>" class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+      </tr>
+      <tr>
+        <% @entities.each do |entity| %>
+          <% if (entity.seq == 1) %>
+            <% if session[:query].include? "#{entity.id}_2" %>
+              <td><%= entity.name %> - <%= @sexes[2].send(@desc_attribute) %></td>
+            <% end %>
+            <% if session[:query].include? "#{entity.id}_3" %>
+              <td><%= entity.name %> - <%= @sexes[1].send(@desc_attribute) %></td>
+            <% end %>
+          <% else %>
+          <% if session[:query].include? "#{entity.id}_1" %>
+              <td><%= entity.name %></td>
+            <% end %>
+          <% end %>
         <% end %>
-      <% else %>
-        <% if session[:query].include? "#{entity.id}_1" %>
-          <td><img id="img_<%= entity.id %>" class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
-        <% end %>
-      <% end %>
-    <% end %>
-  </tr>
-  <tr>
-    <% @entities.each do |entity| %>
-      <% if (entity.seq == 1) %>
-        <% if session[:query].include? "#{entity.id}_2" %>
-          <td><%= entity.name %> - <%= @sexes[2].send(@desc_attribute) %></td>
-        <% end %>
-        <% if session[:query].include? "#{entity.id}_3" %>
-          <td><%= entity.name %> - <%= @sexes[1].send(@desc_attribute) %></td>
-        <% end %>
-      <% else %>
-      <% if session[:query].include? "#{entity.id}_1" %>
-          <td><%= entity.name %></td>
-        <% end %>
-      <% end %>
-    <% end %>
-  </tr>
-</table>
-<% session[:sql].inspect %>
+      </tr>
+    </table>
+  <% end %>
+
+  <% session[:characters].inspect %>

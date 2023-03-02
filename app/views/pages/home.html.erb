@@ -42,6 +42,15 @@
         }
       });
     });
+    $('.reset').click(
+      function () {
+        $(this).closest('.slider').find('.rangeValue').html('0');
+        $(this).closest('.slider').find('input').value = 0;
+        $.ajax({url: "/pages/output", data: $(this).attr('id') + '=1', success: function(result) {
+          $("#output").html(result);
+        }
+      });
+    });
   });
   
   function openHelp() {
@@ -82,8 +91,8 @@
           <div class="child">
             <h3><%= feature.send(@name_attribute) %></h3>
             <div class="slider">
-              <p><%= @characters.first.send(@desc_attribute) %>:</p><input id="character_<%= @characters.first.id %>" type="range" step="0.01" value="<%= sprintf "%.2f", sliderVals[2] %>" min="<%= sprintf "%.2f", sliderVals[0] %>" max="<%= sprintf "%.2f", sliderVals[1] %>">
-              <div class="rangeValue"><%= sprintf "%.2f", sliderVals[2] %></div>
+              <p><%= @characters.first.send(@desc_attribute) %>:</p><input id="character_<%= @characters.first.id %>" type="range" step="0.01" value="0" min="<%= sprintf "%.2f", sliderVals[0] %>" max="<%= sprintf "%.2f", sliderVals[1] %>">
+              <div class="rangeValue">0</div><div class="reset" id="reset_<%= @characters.first.id %>">X</div>
             </div>
           </div>
 
@@ -141,7 +150,7 @@
       <% end %>
   </div>
   <div id="output">
-    <%= render partial: 'output' %>
+    <%= render partial: 'initial' %>
   </div>
 
   <script>

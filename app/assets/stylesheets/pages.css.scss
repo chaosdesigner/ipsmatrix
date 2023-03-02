@@ -118,7 +118,7 @@ img.thumbnail {
 .slider {
   position: absolute;
   top :50%;
-  left: 65%;
+  left: 63%;
   transform: translate(-52%,-50%);
   width: auto;
   height: 60px;
@@ -151,6 +151,12 @@ img.thumbnail {
 }
 .slider input[type=”range”]::-webkit-slider-thumb:hover {
   background: #7E6D57;
+}
+.slider .reset {
+  font-weight: bold;
+  margin-right: 20px;
+  cursor: pointer;
+  color: #0575ff;
 }
 
 #output {
@@ -257,4 +263,10 @@ img.thumbnail {
 /* padding for main container */
 .mfp-no-margins .mfp-container {
   padding: 0;
+}
+
+#no-results {
+  width: 100px;
+  height: 100px;
+  opacity: 0.3;
 }

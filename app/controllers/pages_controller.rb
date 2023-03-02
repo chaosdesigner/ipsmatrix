@@ -28,12 +28,17 @@ class PagesController < ApplicationController
       elsif param[0].include? 'character'
         character_id = param[0].split('_').second
         session[:characters][character_id] = param[1]
+      elsif param[0].include? 'reset'
+        character_id = param[0].split('_').second
+        session[:characters].delete(character_id)
       end
     end
 
     # Build SQL query
     
-    sql_selects = entities = []
+    sql_selects = []
+    entities = []
+    sql = nil
     if (!session[:characters].empty? || !session[:states].empty?)
       if !session[:characters].empty?
         session[:characters].each do |character|
@@ -50,7 +55,7 @@ class PagesController < ApplicationController
           feature_id = Character.find(character).feature_id
           features[feature_id] = features[feature_id] ? features[feature_id] << character : [character]
         end
-        features.each do |feature|
+        features.each do |key, feature|
           sql_selects << "SELECT entity_id, sex_id FROM states WHERE character_id IN (#{feature.join(',')})"
         end
       end
@@ -68,7 +73,11 @@ class PagesController < ApplicationController
       session[:sql] = []
     end      
 
-    render partial: 'output'
+    if sql.nil?
+      render partial: 'initial'
+    else
+      render partial: 'output'
+    end
   end
 
   private
