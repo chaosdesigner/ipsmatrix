@@ -18,6 +18,10 @@
       );
     $('.image_cell input').change(
         function () {
+          $(this).closest('.child').css('border-color', 'red');
+          if ($(this).closest('.child').find('input:checked').length === 0) {
+            $(this).closest('.child').css('border-color', 'black');
+          }
           id = $(this).attr('id').replace('checkbox_', '');
           $('#state_' + id).toggle();
           if ($('#image_' + id).css('opacity') === '1') {
@@ -30,6 +34,7 @@
       );
     $('.slider input').on('input change paste keyup', function() {   
         $(this).closest('.slider').find('.rangeValue').html($(this).val());
+        $(this).closest('.child').css('border-color', 'red');
         $.ajax({url: "/pages/output", data: $(this).attr('id') + '=' + $(this).val(), success: function(result) {
           $("#output").html(result);
         }});
@@ -46,6 +51,7 @@
       function () {
         $(this).closest('.slider').find('.rangeValue').html('0');
         $(this).closest('.slider').find('input').value = 0;
+        $(this).closest('.child').css('border-color', 'black');
         $.ajax({url: "/pages/output", data: $(this).attr('id') + '=1', success: function(result) {
           $("#output").html(result);
         }
@@ -68,7 +74,7 @@
     <h3>Help</h3>
     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque ipsum. Curabitur bibendum justo non orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Integer in sapien. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Mauris elementum mauris vitae tortor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo. Fusce tellus.</p>
     <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Etiam commodo dui eget wisi. Aliquam erat volutpat. Nullam dapibus fermentum ipsum. Nunc auctor. Duis condimentum augue id magna semper rutrum. Fusce nibh. Nullam eget nisl. Nullam rhoncus aliquam metus. Proin mattis lacinia justo. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Praesent vitae arcu tempor neque lacinia pretium. Aenean id metus id velit ullamcorper pulvinar. Nunc tincidunt ante vitae massa. Donec quis nibh at felis congue commodo. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et, dolor. Aliquam ornare wisi eu metus. Curabitur vitae diam non enim vestibulum interdum.</p>
-  </div>  
+  </div>
 
   <div id="header">
     <span class="help-icon" onclick="openHelp()">&#9776;</span>
