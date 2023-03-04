@@ -336,3 +336,21 @@ Character.create!([{
                    }])
 
 p "Created #{Character.count} Characters"
+
+p "Creating key"
+
+require 'csv'
+
+csv_text = File.read(Rails.root.join('db', 'data', 'key_definition.csv'))
+csv = CSV.parse(csv_text, :headers => false)
+csv.each do |row|
+  s = State.new
+  s.character_id = row[0]
+  s.entity_id = row[1]
+  s.sex_id = row[3]
+  s.value_min = row[4]
+  s.value_max = row[5]
+  s.save
+end
+
+p "Key created."
