@@ -18,5 +18,4 @@ jobs:
           script: |
             cd ~/ipsmatrix
             git pull
-            echo 'Deployment of IpsMatrix to Digital Ocean successful
-            exit
+            echo 'Deployment of IpsMatrix to Digital Ocean successful'
