@@ -54,8 +54,8 @@ Feature.destroy_all
 
 Feature.create!([{
                   id: 1,
-                  name_en: 'Body',
-                  name_cz: 'Tělo',
+                  name_en: 'Body length',
+                  name_cz: 'Velikost',
                   seq: 1
                 },
                  {
