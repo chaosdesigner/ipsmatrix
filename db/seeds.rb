@@ -347,9 +347,9 @@ csv.each do |row|
   s = State.new
   s.character_id = row[0]
   s.entity_id = row[1]
-  s.sex_id = row[3]
-  s.value_min = row[4]
-  s.value_max = row[5]
+  s.sex_id = row[2]
+  s.value_min = row[3]
+  s.value_max = row[4]
   s.save
 end
 
