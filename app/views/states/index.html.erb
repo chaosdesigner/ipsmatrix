@@ -7,7 +7,9 @@
   })
 </script>
 
-<p style="color: green"><%= notice %></p>
+<% if notice %>
+  <div class="message"><%= notice %></div>
+<% end %>
 
 <h1>Maticový determinační klíč lýkožroutů rodu Ips České republiky</h1>
 
