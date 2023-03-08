@@ -10,6 +10,31 @@
   padding: 10px;
 }
 
+.image_missing {
+  background-color: #daa1a1;
+}
+.has_image {
+  background-color: #c0d6e2;
+}
+.main_image {
+  background-color: #88a8b9;
+}
+
+.legend {
+  vertical-align: bottom;
+  padding: 20px 10px;
+  font-size: 11px;
+  div {
+    width: 40%;
+    margin: 2px;
+    padding: 5px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
 #form-container {
   width: 600px;
   text-align: left;

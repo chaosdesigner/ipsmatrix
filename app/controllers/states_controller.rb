@@ -72,6 +72,6 @@ class StatesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def state_params
-    params.require(:state).permit(:character_id, :entity_id, :sex_id, :value_min, :value_max, :image)
+    params.require(:state).permit(:character_id, :entity_id, :sex_id, :value_min, :value_max, :image, :show_in_key)
   end
 end

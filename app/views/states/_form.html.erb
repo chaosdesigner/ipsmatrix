@@ -1,3 +1,11 @@
+<script>
+  $(document).ready(function() {
+    $("#show_in_key").on('click', function() {
+      $("#foto").toggle();
+    });
+  });
+</script>
+
 <%= form_with(model: state) do |form| %>
   <% if state.errors.any? %>
     <div style="color: red">
@@ -49,12 +57,21 @@
   <% else %>
 
     <div>
+      <%= form.check_box :show_in_key, :id => 'show_in_key', :value => state.show_in_key ? state.show_in_key : true %>Použít fotografii v klíči
+    </div>
+
+    <% visibility = (!@state.show_in_key) ? " class=hidden" : '' %>
+    <div id="foto"<%= visibility %>>
       <h3>Fotografie znaku:</h3>
       <% if (!@state.id.nil?) %>
-        <%= image_tag url_for(@state.image), size: "300x300" %><br />
+        <% if (@state.image.attached?) %>
+          <%= image_tag url_for(@state.image), size: "300x300" %><br />
+        <% else %>
+          <img src="/images/stop-icon-13421.png" width="300" height="300"><br />
+        <% end %>
         <%= form.file_field :image %>
       <% else %>
-        <%= form.file_field :image, :required => true %>
+        <%= form.file_field :image %>
       <% end %>
     </div>
 

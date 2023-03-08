@@ -20,4 +20,21 @@ module ApplicationHelper
     end
     max
   end
+
+  def getStateWithImage(character_id)
+    with_image = false
+    without_image = false
+    State.where(character_id: character_id).each do |state|
+      if state.image.attached?
+        with_image = state
+      else
+        without_image = state
+      end
+    end
+    if with_image
+      with_image
+    else
+      false
+    end
+  end
 end

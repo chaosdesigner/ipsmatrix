@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_01_202130) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_06_140320) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -103,6 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_202130) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "show_in_key", default: true
     t.index ["character_id"], name: "index_states_on_character_id"
     t.index ["entity_id"], name: "index_states_on_entity_id"
     t.index ["sex_id"], name: "index_states_on_sex_id"

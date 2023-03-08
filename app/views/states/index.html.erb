@@ -21,7 +21,11 @@
     <thead>
       <tr>
         <!-- First column header is not rotated -->
-        <th></th>
+        <th class="legend">
+          <div class="image_missing">Stav s hlavní fotografií pro znak</div>
+          <div class="has_image">Stav s fotografií</div>
+          <div class="main_image">Stav bez fotografie</div>
+        </th>
         <!-- Following headers are rotated -->
         <% @entities.each do |entity| %>
           <% if (entity.seq == 1) %>
@@ -49,10 +53,10 @@
             <th class="row-header">&nbsp;-&nbsp;<%= character.send(@desc_attribute) %></th>
             <% @entities.each do |entity|
               if (entity.seq == 1) %>
-                <td><%= format_checkbox(entity.id, character.id, 2) %></td>
-                <td><%= format_checkbox(entity.id, character.id, 3) %></td>
+                <%= format_checkbox(entity.id, character.id, 2) %>
+                <%= format_checkbox(entity.id, character.id, 3) %>
               <% else %>
-                <td><%= format_checkbox(entity.id, character.id, 1) %></td>
+                <%= format_checkbox(entity.id, character.id, 1) %>
               <% end %>
             <% end %>
           </tr>
