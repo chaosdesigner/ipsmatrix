@@ -6,9 +6,13 @@
     $('.image_cell').hover(
         function () {
           $(this).closest('table').find('.state-description-hover').html($(this).children(':first').attr('title'));
+          $(this).find('img').css('opacity') === '1';
+          $(this).find('img').removeClass("greyscale");
         }, 
         function () {
           $(this).closest('table').find('.state-description-hover').html('');
+          $(this).find('img').css('opacity') === '0.8';
+          $(this).find('img').addClass("greyscale");
         }
       );
     $('.image-popup-vertical-fit').mouseout(
@@ -25,9 +29,11 @@
           id = $(this).attr('id').replace('checkbox_', '');
           $('#state_' + id).toggle();
           if ($('#image_' + id).css('opacity') === '1') {
-            $('#image_' + id).css({ 'opacity' : 0.5 });
+            $('#image_' + id).css({ 'opacity' : 0.8 });
+            $('#image_' + id).addClass("greyscale");
           } else {
             $('#image_' + id).css({ 'opacity' : 1 });
+            $('#image_' + id).removeClass("greyscale");
           }
           $('#output').html("<%= j (render partial: 'output') %>");
         }
@@ -121,7 +127,7 @@
 
                     <td class="image_cell">
                       <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= character.send(@desc_attribute) %>">
-                        <%= image_tag url_for(state.image), class: "thumbnail galleryimages", id: "image_#{state.id}"%>
+                        <%= image_tag url_for(state.image), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
                       </a>
                     </td>
 
@@ -129,7 +135,7 @@
 
                       <td class="image_cell">
                         <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= character.send(@desc_attribute) %>">
-                           <%= image_tag url_for(state.image), class: "thumbnail galleryimages", id: "image_#{state.id}"%>
+                           <%= image_tag url_for(state.image), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
                         </a>
                       </td>
 
