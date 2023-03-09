@@ -11,8 +11,11 @@
         }, 
         function () {
           $(this).closest('table').find('.state-description-hover').html('');
-          $(this).find('img').css('opacity') === '0.8';
-          $(this).find('img').addClass("greyscale");
+          id = $(this).find('img').attr('id').replace('image_', '');
+          if (!$('#checkbox_' + id).is(":checked")) {
+            $(this).find('img').css('opacity') === '0.8';
+            $(this).find('img').addClass("greyscale");
+          }
         }
       );
     $('.image-popup-vertical-fit').mouseout(
