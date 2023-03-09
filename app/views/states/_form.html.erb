@@ -1,11 +1,3 @@
-<script>
-  $(document).ready(function() {
-    $("#show_in_key").on('click', function() {
-      $("#foto").toggle();
-    });
-  });
-</script>
-
 <%= form_with(model: state) do |form| %>
   <% if state.errors.any? %>
     <div style="color: red">
@@ -19,65 +11,65 @@
     </div>
   <% end %>
 
-  <div>
-    <h3>Skupina znaků:</h3>
-    <%= @character.feature.name_cz %>
-  </div>
+    <div class="left_panel">
+      <div>
+        <b>Skupina znaků:</b>&nbsp;<%= @character.feature.name_cz %>
+      </div>
 
-  <div>
-    <h3>Znak:</h3>
-    <%= form.hidden_field :character_id, value: params['character'] ? Character.find(params['character']).id : @state.character.id %>
-    <%= @character.description_cz %>
-  </div>
+      <div>
+        <b>Znak:</b>&nbsp;<%= @character.description_cz %>
+        <%= form.hidden_field :character_id, value: params['character'] ? Character.find(params['character']).id : @state.character.id %>
+      </div>
 
-  <div>
-    <h3>Druh:</h3>
-    <%= form.hidden_field :entity_id, value: params['entity'] ? Entity.find(params['entity']).id : @state.entity.id %>
-    <%= params['entity'] ? Entity.find(params['entity']).name : @state.entity.name %>
-  </div>
+      <div>
+        <b>Druh:</b>&nbsp;<%= params['entity'] ? Entity.find(params['entity']).name : @state.entity.name %>
+        <%= form.hidden_field :entity_id, value: params['entity'] ? Entity.find(params['entity']).id : @state.entity.id %>
+      </div>
 
-  <div>
-    <h3>Pohlaví:</h3>
-    <%= form.hidden_field :sex_id, value: params['sex'] ? Sex.find(params['sex']).id : @state.sex.id %>
-    <%= params['sex'] ? Sex.find(params['sex']).description_cz : @state.sex.description_cz %>
-  </div>
-
-  <% if @character.feature_type_id === 1 %>
-
-    <div>
-      <h3>Spodní hranice parametru:</h3>
-      <%= form.text_field :value_min, :required => true %>
+      <div>
+        <b>Pohlaví:</b>&nbsp;<%= params['sex'] ? Sex.find(params['sex']).description_cz : @state.sex.description_cz %>
+        <%= form.hidden_field :sex_id, value: params['sex'] ? Sex.find(params['sex']).id : @state.sex.id %>
+      </div>
     </div>
 
-    <div>
-      <h3>Horní hranice parametru:</h3>
-      <%= form.text_field :value_max, :required => true %>
-    </div>
+    <div class="right_panel">
 
-  <% else %>
+      <% if @character.feature_type_id === 1 %>
 
-    <div>
-      <%= form.check_box :show_in_key, :id => 'show_in_key', :value => state.show_in_key ? state.show_in_key : true %>Použít fotografii v klíči
-    </div>
+        <div>
+          <b>Spodní hranice parametru:</b><br /><%= form.text_field :value_min, :required => true %>
+        </div>
 
-    <% visibility = (!@state.show_in_key) ? " class=hidden" : '' %>
-    <div id="foto"<%= visibility %>>
-      <h3>Fotografie znaku:</h3>
-      <% if (!@state.id.nil?) %>
-        <% if (@state.image.attached?) %>
-          <%= image_tag url_for(@state.image), size: "300x300" %><br />
-        <% else %>
-          <img src="/images/stop-icon-13421.png" width="300" height="300"><br />
-        <% end %>
-        <%= form.file_field :image %>
+        <div>
+          <b>Horní hranice parametru:</b><br /><%= form.text_field :value_max, :required => true %>
+        </div>
+
       <% else %>
-        <%= form.file_field :image %>
-      <% end %>
-    </div>
 
-  <% end %>
+        <div>
+          <%= form.check_box :show_in_key, :id => 'show_in_key', :value => state.show_in_key ? state.show_in_key : true %>Použít fotografii v klíči
+        </div>
+
+        <div id="foto">
+          <div><b>Fotografie znaku:</b></div>
+          <% if (!@state.id.nil?) %>
+            <% if (@state.image.attached?) %>
+              <%= image_tag url_for(@state.image), size: "300x300" %><br />
+            <% else %>
+              <img src="/images/stop-icon-13421.png" width="300" height="300"><br />
+            <% end %>
+            <%= form.file_field :image %>
+          <% else %>
+            <%= form.file_field :image %>
+          <% end %>
+        </div>
+
+      <% end %>
+
+    </div>
+    <br class="clear">
 
   <div>
-    <br /><%= form.submit %>
+    <% if state.id %><%= button_to "Smazat stav", @state, method: :delete, id: "delete" %><% end %><%= form.button 'Uložit stav', type: 'submit', id: "submit" %>
   </div>
 <% end %>

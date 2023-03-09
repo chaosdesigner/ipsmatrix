@@ -1,3 +1,7 @@
+.clear {
+  clear: both;
+}
+
 .message {
   background-color: green;
   color: #eee;
@@ -36,15 +40,61 @@
 }
 
 #form-container {
-  width: 600px;
+  width: 800px;
   text-align: left;
   margin-left: auto;
   margin-right: auto;
-  background-color: beige;
+  background-color: var(--leaf3);
   padding: 15px;
+  input {
+    margin: 10px 0;
+  }
+  button {
+    margin: 8px 5px;
+  }
+  #delete {
+    margin-left: 10px;
+    opacity: 0.3;
+  }
+  #submit {
+    float: right;
+  }
+  #state_image {
+    margin-left: 9px;
+  }
   img {
+    margin: 10px;
+  }
+  b {
+    color: var(--leaf5);
+  }
+  a {
+    float: right;
+    margin: -40px 25px 0 0;
+    color: var(--leaf5)
+  }
+  h1 {
+    text-align: left;
+    margin: 10px 0 0 28px;
+  }
+  h2, h3 {
     margin-bottom: 10px;
   }
+  div {
+    margin: 10px;
+  }
+  div.right_panel {
+    width: 320px;
+    float: right;
+  }
+  div.left_panel {
+    width: 420px;
+    float: left;
+  }
+}
+
+#show_in_key {
+  margin: 0 10px !important;
 }
 
 td {
@@ -129,3 +179,11 @@ th {
     text-align: left;
     // white-space: nowrap; /*whether to display in one line or not*/
   }
+
+.center-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}

@@ -1,12 +1,13 @@
-<h1>Editace stavu</h1>
+<div class="center-screen">
+  <div id="form-container">
 
-<div id="form-container">
-  <%= render "form", state: @state %>
-
-  <br>
-
-  <div>
+    <h1>Editace stavu</h1>
     <%= link_to "Zpět na klíč", states_path %>
-    <%= button_to "Smazat stav", @state, method: :delete %>
+    <br class="clear">
+
+    <div>
+      <%= render "form", state: @state %>
+    </div>
   </div>
 </div>
+
