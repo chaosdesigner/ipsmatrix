@@ -39,6 +39,16 @@
   display: none;
 }
 
+.button {
+  width: 84%;
+}
+
+#delete {
+  margin-right: 100px;
+  opacity: 0.3;
+  float: right;
+}
+
 #form-container {
   width: 800px;
   text-align: left;
@@ -51,10 +61,6 @@
   }
   button {
     margin: 8px 5px;
-  }
-  #delete {
-    margin-left: 10px;
-    opacity: 0.3;
   }
   #submit {
     float: right;
@@ -70,7 +76,7 @@
   }
   a {
     float: right;
-    margin: -40px 25px 0 0;
+    margin: -36px 25px 0 0;
     color: var(--leaf5)
   }
   h1 {
