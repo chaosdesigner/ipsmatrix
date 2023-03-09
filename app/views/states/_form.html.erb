@@ -47,7 +47,7 @@
       <% else %>
 
         <div>
-          <%= form.check_box :show_in_key, :id => 'show_in_key', :value => state.show_in_key ? state.show_in_key : true %>Použít fotografii v klíči
+          <%= form.check_box :show_in_key, :id => 'show_in_key', :value => state && state.show_in_key ? state.show_in_key : true %>Použít fotografii v klíči
         </div>
 
         <div id="foto">
