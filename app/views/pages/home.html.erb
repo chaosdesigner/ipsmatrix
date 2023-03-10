@@ -5,7 +5,7 @@
 
     $('.image_cell').hover(
         function () {
-          $(this).closest('table').find('.state-description-hover').html($(this).children(':first').attr('title'));
+          $(this).closest('table').find('.state-description-hover').html($(this).children(':first').attr('alt'));
           $(this).find('img').css('opacity') === '1';
           $(this).find('img').removeClass("greyscale");
         }, 
@@ -133,7 +133,7 @@
                     
                     <% checkboxes << state.id %>
                     <td class="image_cell" id="image_cell_<%= state.id %>">
-                      <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>">
+                      <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>" alt='<%= character.send(@desc_attribute) %>'>
                         <%= image_tag url_for(state.image), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
                       </a>
                     </td>
@@ -142,7 +142,7 @@
 
                     <% checkboxes << state.id %>
                     <td class="image_cell" id="image_cell_<%= state.id %>">
-                      <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>">
+                      <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>" alt='<%= character.send(@desc_attribute) %>'>
                           <%= image_tag url_for(state.image), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
                       </a>
                     </td>
@@ -151,7 +151,7 @@
 
                     <% checkboxes << state.id %>
                     <td class="image_cell">
-                      <a title="<%= colateImgDescription(state) %>">
+                      <a title="<%= colateImgDescription(state) %>" alt='<%= character.send(@desc_attribute) %>'>
                         <img src="/images/stop-icon-bg.png">
                       </a>
                     </td>
