@@ -2,7 +2,7 @@
   <table>
     <tr>
       <% @entities.each do |entity| %>
-        <td><img id="img_<%= entity.id %>" class="thumbnail" src="images/Dendroctonus_ponderosae.jpg" /></td>
+        <td><img id="img_<%= entity.id %>" class="thumbnail" src="images/<%= entity.name.gsub(' ', '_').downcase %>.jpg" /></td>
       <% end %>
     </tr>
     <tr>
