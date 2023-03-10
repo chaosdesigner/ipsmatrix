@@ -37,4 +37,14 @@ module ApplicationHelper
       false
     end
   end
+
+  def colateImgDescription(state)
+    character = Character.find(state.character_id)
+    feature = Feature.find(character.feature_id)
+    entity = Entity.find(state.entity_id)
+    img_description = feature.send(@name_attribute) + ': '
+    img_description += character.send(@desc_attribute)
+    img_description += ' (' + entity.name + ')'
+    img_description
+  end
 end

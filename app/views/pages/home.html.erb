@@ -126,28 +126,32 @@
               <tr>
                 <td>&nbsp;</td>
 
+                <% checkboxes = [] %>
                 <% @characters.each do |character| %>
 
                   <% if (state = State.where(character_id: character.id, show_in_key: true).first) %>
-
+                    
+                    <% checkboxes << state.id %>
                     <td class="image_cell" id="image_cell_<%= state.id %>">
-                      <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= character.send(@desc_attribute) %>">
+                      <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>">
                         <%= image_tag url_for(state.image), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
                       </a>
                     </td>
 
                   <% elsif (state = getStateWithImage(character.id)) %>
 
-                      <td class="image_cell" id="image_cell_<%= state.id %>">
-                        <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= character.send(@desc_attribute) %>">
-                           <%= image_tag url_for(state.image), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
-                        </a>
-                      </td>
+                    <% checkboxes << state.id %>
+                    <td class="image_cell" id="image_cell_<%= state.id %>">
+                      <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>">
+                          <%= image_tag url_for(state.image), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
+                      </a>
+                    </td>
 
                   <% else %>
 
+                    <% checkboxes << state.id %>
                     <td class="image_cell">
-                      <a title="<%= character.send(@desc_attribute) %>">
+                      <a title="<%= colateImgDescription(state) %>">
                         <img src="/images/stop-icon-bg.png">
                       </a>
                     </td>
@@ -159,10 +163,9 @@
               <tr>
                 <td>&nbsp;</td>
 
-                <% @characters.each do |character| %>
-                  <% state = State.where(character_id: character.id).first %>
+                <% checkboxes.each do |state_id| %>
 
-                  <td class="image_cell"><input id="checkbox_<%= state.id %>" type="checkbox" /></td>            
+                  <td class="image_cell"><input id="checkbox_<%= state_id %>" type="checkbox" /></td>            
 
                 <% end %>
 
