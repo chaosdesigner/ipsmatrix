@@ -134,7 +134,7 @@
                     <% checkboxes << state.id %>
                     <td class="image_cell" id="image_cell_<%= state.id %>">
                       <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>" alt='<%= character.send(@desc_attribute) %>'>
-                        <%= image_tag url_for(state.image), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
+                        <%= image_tag state.image.variant(resize_to_limit: [100, 100]), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
                       </a>
                     </td>
 
@@ -143,7 +143,7 @@
                     <% checkboxes << state.id %>
                     <td class="image_cell" id="image_cell_<%= state.id %>">
                       <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>" alt='<%= character.send(@desc_attribute) %>'>
-                          <%= image_tag url_for(state.image), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
+                          <%= image_tag state.image.variant(resize_to_limit: [100, 100]), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
                       </a>
                     </td>
 
