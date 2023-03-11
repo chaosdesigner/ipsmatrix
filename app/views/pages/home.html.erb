@@ -132,19 +132,37 @@
                   <% if (state = State.where(character_id: character.id, show_in_key: true).first) %>
                     
                     <% checkboxes << state.id %>
-                    <td class="image_cell" id="image_cell_<%= state.id %>">
-                      <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>" alt='<%= character.send(@desc_attribute) %>'>
-                        <%= image_tag state.image.variant(resize_to_limit: [100, 100]), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
+                    <td class="image_cell popup-gallery" id="image_cell_<%= state.id %>">
+                      <a href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>" alt='<%= character.send(@desc_attribute) %>'>
+                        <%= image_tag state.image.variant(resize_to_limit: [100, 100]), width: 100, height: 100, class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
                       </a>
+                      <% if (feature.id != @host_feature_id) %>
+                        <% State.where(character_id: character.id).where.not(entity_id: state.entity_id).each do |other| %>
+                          <% if other.image.attached? %>
+                            <a class="hidden" href="<%= url_for(other.image) %>" title="<%= colateImgDescription(other) %>" alt='<%= character.send(@desc_attribute) %>'>
+                              <%= image_tag other.image.variant(resize_to_limit: [100, 100]), width: 100, height: 100, class: "thumbnail galleryimages greyscale", id: "image_#{other.id}"%>
+                            </a>
+                          <% end %>                       
+                        <% end %>
+                      <% end %>
                     </td>
 
                   <% elsif (state = getStateWithImage(character.id)) %>
 
                     <% checkboxes << state.id %>
-                    <td class="image_cell" id="image_cell_<%= state.id %>">
+                    <td class="image_cell popup-gallery" id="image_cell_<%= state.id %>">
                       <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>" alt='<%= character.send(@desc_attribute) %>'>
                           <%= image_tag state.image.variant(resize_to_limit: [100, 100]), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
                       </a>
+                      <% if (feature.id != @host_feature_id) %>
+                        <% State.where(character_id: character.id).not(entity_id: state.entity_id).each do |other| %>
+                          <% if other.image.attached? %>
+                            <a class="hidden" href="<%= url_for(other.image) %>" title="<%= colateImgDescription(other) %>" alt='<%= character.send(@desc_attribute) %>'>
+                              <%= image_tag other.image.variant(resize_to_limit: [100, 100]), width: 100, height: 100, class: "thumbnail galleryimages greyscale", id: "image_#{other.id}"%>
+                            </a>
+                          <% end %>                       
+                        <% end %>
+                      <% end %>
                     </td>
 
                   <% else %>
@@ -223,10 +241,29 @@
       },
       zoom: {
         enabled: true,
-        duration: 300 // don't foget to change the duration also in CSS
+        duration: 300
       }
     });
-  
+
+    $('.popup-gallery').each(function() {
+      $(this).magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        tLoading: 'Loading image #%curr%...',
+        mainClass: 'mfp-img-mobile',
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+          tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+          titleSrc: function(item) {
+            return item.el.attr('title');
+          }
+        }
+      });
+    });
   });
   </script>
 </body>
