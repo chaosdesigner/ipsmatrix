@@ -131,7 +131,7 @@
 
                   <% if (state = State.where(character_id: character.id, show_in_key: true).first) %>
                     
-                    <% checkboxes << state.id %>
+                    <% checkboxes << [ state.id, character.send(@desc_attribute) ] %>
                     <td class="image_cell popup-gallery" id="image_cell_<%= state.id %>">
                       <a href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>" alt='<%= character.send(@desc_attribute) %>'>
                         <%= image_tag state.image.variant(resize_to_limit: [100, 100]), width: 100, height: 100, class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
@@ -149,7 +149,7 @@
 
                   <% elsif (state = getStateWithImage(character.id)) %>
 
-                    <% checkboxes << state.id %>
+                    <% checkboxes << [ state.id, character.send(@desc_attribute) ] %>
                     <td class="image_cell popup-gallery" id="image_cell_<%= state.id %>">
                       <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>" alt='<%= character.send(@desc_attribute) %>'>
                           <%= image_tag state.image.variant(resize_to_limit: [100, 100]), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
@@ -167,7 +167,7 @@
 
                   <% else %>
 
-                    <% checkboxes << state.id %>
+                  <% checkboxes << [ state.id, character.send(@desc_attribute) ] %>
                     <td class="image_cell">
                       <a title="<%= colateImgDescription(state) %>" alt='<%= character.send(@desc_attribute) %>'>
                         <img src="/images/stop-icon-bg.png">
@@ -181,9 +181,9 @@
               <tr>
                 <td>&nbsp;</td>
 
-                <% checkboxes.each do |state_id| %>
+                <% checkboxes.each do |state| %>
 
-                  <td class="image_cell"><input id="checkbox_<%= state_id %>" type="checkbox" /></td>            
+                  <td class="image_cell"><input id="checkbox_<%= state.first %>" type="checkbox" /></td>            
 
                 <% end %>
 
@@ -191,10 +191,10 @@
               <tr>
 
                 <td colspan="<%= @characters.count + 1 %>" class="selected_state">
-                <% @characters.each do |character| %>
+                
+                <% checkboxes.each do |state| %>
                   
-                  <% state = State.where(character_id: character.id).first %>
-                  <span id="state_<%= state.id %>"><%= character.send(@desc_attribute) %></span>   
+                  <span id="state_<%= state.first %>"><%= state.second %></span>   
 
                 <% end %>
 
