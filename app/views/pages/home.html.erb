@@ -20,7 +20,7 @@
           }
         }
       );
-    $('.image-popup-vertical-fit').mouseout(
+    $('image_cell a').mouseout(
         function () {
           $(this).closest('table').find('.state-description-hover').html('');
         }
@@ -151,7 +151,7 @@
 
                     <% checkboxes << [ state.id, character.send(@desc_attribute) ] %>
                     <td class="image_cell popup-gallery" id="image_cell_<%= state.id %>">
-                      <a class="image-popup-vertical-fit" href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>" alt='<%= character.send(@desc_attribute) %>'>
+                      <a href="<%= url_for(state.image) %>" title="<%= colateImgDescription(state) %>" alt='<%= character.send(@desc_attribute) %>'>
                           <%= image_tag state.image.variant(resize_to_limit: [100, 100]), class: "thumbnail galleryimages greyscale", id: "image_#{state.id}"%>
                       </a>
                       <% if (feature.id != @host_feature_id) %>
@@ -211,39 +211,6 @@
 
   <script>
   $(document).ready(function() {
-
-    $('.image-popup-vertical-fit').magnificPopup({
-      type: 'image',
-      closeOnContentClick: true,
-      mainClass: 'mfp-img-mobile',
-      image: {
-        verticalFit: true
-      }
-      
-    });
-  
-    $('.image-popup-fit-width').magnificPopup({
-      type: 'image',
-      closeOnContentClick: true,
-      image: {
-        verticalFit: false
-      }
-    });
-  
-    $('.image-popup-no-margins').magnificPopup({
-      type: 'image',
-      closeOnContentClick: true,
-      closeBtnInside: false,
-      fixedContentPos: true,
-      mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
-      image: {
-        verticalFit: true
-      },
-      zoom: {
-        enabled: true,
-        duration: 300
-      }
-    });
 
     $('.popup-gallery').each(function() {
       $(this).magnificPopup({
