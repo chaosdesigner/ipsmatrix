@@ -24,14 +24,14 @@
         <% @entities.each do |entity| %>
           <% if (entity.seq == 1) %>
             <% if session[:query].include? "#{entity.id}_2" %>
-              <td><%= entity.name %> - <%= @sexes[2].send(@desc_attribute) %></td>
+              <td><i><%= entity.name %> - <%= @sexes[2].send(@desc_attribute) %></i></td>
             <% end %>
             <% if session[:query].include? "#{entity.id}_3" %>
-              <td><%= entity.name %> - <%= @sexes[1].send(@desc_attribute) %></td>
+              <td><i><%= entity.name %> - <%= @sexes[1].send(@desc_attribute) %></i></td>
             <% end %>
           <% else %>
           <% if session[:query].include? "#{entity.id}_1" %>
-              <td><%= entity.name %></td>
+              <td><i><%= entity.name %></i></td>
             <% end %>
           <% end %>
         <% end %>
