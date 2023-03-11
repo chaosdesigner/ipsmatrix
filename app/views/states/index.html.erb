@@ -29,8 +29,8 @@
         <!-- Following headers are rotated -->
         <% @entities.each do |entity| %>
           <% if (entity.seq == 1) %>
-            <th class="rotate-45"><div><span><%= entity.name %> - <%= @sexes[2].send(@desc_attribute) %></span></div></th>
             <th class="rotate-45"><div><span><%= entity.name %> - <%= @sexes[1].send(@desc_attribute) %></span></div></th>
+            <th class="rotate-45"><div><span><%= entity.name %> - <%= @sexes[2].send(@desc_attribute) %></span></div></th>
           <% else %>
             <th class="rotate-45"><div><span><%= entity.name %></span></div></th>
           <% end %>
