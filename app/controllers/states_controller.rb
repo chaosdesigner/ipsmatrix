@@ -2,7 +2,7 @@
 
 class StatesController < ApplicationController
   before_action :set_state, only: %i[show edit update destroy]
-  http_basic_authenticate_with name: "admin", password: "test", only: [:index]
+  http_basic_authenticate_with name: "admin", password: "lykozrout", only: [:index]
 
   # GET /states or /states.json
   def index
