@@ -1,18 +1,25 @@
 h1 {
-  margin: 0;
-  text-align: center;
+  margin: 0
 }
 
-h2, h3 {
+h1, h2 {
+  text-align: left;
+}
+
+h2 {
   margin: 4px;
   margin-bottom: -10px;
+}
+
+h3 {
+  margin: 0;
 }
 
 img.thumbnail {
   width: 100px;
   height: 100px;
   border: 1px solid var(--leaf6);
-  margin: 0 5px;
+  margin: 0 2px;
 }
 
 .greyscale {
@@ -86,7 +93,7 @@ img.thumbnail {
 
 .child table td.selected_state {
   height: 30px;
-  text-align: right;
+  text-align: left;
   padding-top: 5px;
   font-size: 12px;
   line-height: 30px;
@@ -95,7 +102,7 @@ img.thumbnail {
   color: var(--leaf3);
   padding: 5px;
   background-color: var(--leaf6);
-  border: 2px solid var(--leaf1);
+  border: 1px solid var(--leaf1);
 }
 .child p {
   padding: 10px;
@@ -115,10 +122,9 @@ img.thumbnail {
 }
 
 .state-description-hover {
-  text-align: right;
-  height: 20px;
+  text-align: left;
   vertical-align: top;
-  margin-right: 7px;
+  padding-top: 3px 10px 0 0;
 }
 
 .slider {

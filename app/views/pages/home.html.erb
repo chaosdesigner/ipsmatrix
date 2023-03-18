@@ -3,9 +3,9 @@
   $(document).ready(function() {
     $('.selected_state span').hide();
 
-    $('.image_cell').hover(
+    $('.thumbnail').hover(
         function () {
-          $(this).closest('table').find('.state-description-hover').html($(this).children(':first').attr('alt'));
+          $(this).closest('table').find('.state-description-hover').html('&#9656;&nbsp;' + $(this).parent().attr('alt'));
           $(this).find('img').css('opacity') === '1';
           $(this).find('img').removeClass("greyscale");
         }, 
@@ -27,9 +27,9 @@
       );
     $('.image_cell input').change(
         function () {
-          $(this).closest('.child').css('border-color', 'red');
+          $(this).closest('.child').css('background-color', '#a9dfbc');
           if ($(this).closest('.child').find('input:checked').length === 0) {
-            $(this).closest('.child').css('border-color', 'black');
+            $(this).closest('.child').css('background-color', '#e4e6d9');
           }
           id = $(this).attr('id').replace('checkbox_', '');
           $('#state_' + id).toggle();
@@ -45,7 +45,7 @@
       );
     $('.slider input').on('input change paste keyup', function() {   
         $(this).closest('.slider').find('.rangeValue').html($(this).val());
-        $(this).closest('.child').css('border-color', 'red');
+        $(this).closest('.child').css('background-color', '#a9dfbc');
         $.ajax({url: "/pages/output", data: $(this).attr('id') + '=' + $(this).val(), success: function(result) {
           $("#output").html(result);
         }});
@@ -62,7 +62,7 @@
       function () {
         $(this).closest('.slider').find('.rangeValue').html('0');
         $(this).closest('.slider').find('input').value = 0;
-        $(this).closest('.child').css('border-color', 'black');
+        $(this).closest('.child').css('background-color', '#e4e6d9');
         $.ajax({url: "/pages/output", data: $(this).attr('id') + '=1', success: function(result) {
           $("#output").html(result);
         }
@@ -93,9 +93,8 @@
   </div>
   <div class="block">
     <div class="centered">
-      <h1>
-        Maticový determinační klíč<br />lýkožroutů rodu Ips České republiky
-      </h1>
+      <h1><i>Ips</i>Matrix &gt;</h1>
+      <h2>Maticový determinační klíč lýkožroutů rodu <i>Ips</i> České republiky</h2>
 
       <% @features.each do |feature| %>
         <% @characters = Character.where(feature_id: feature.id) %>
@@ -117,14 +116,13 @@
 
           <!-- Selection box -->
 
-          <div class="child">
-            <h3><%= feature.send(@name_attribute) %></h3>  
+          <div class="child">  
             <table>
               <tr>
-                <td colspan="<%= @characters.count + 1 %>"><div class="state-description-hover"></div></td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
+                <td>
+                  <h3><%= feature.send(@name_attribute) %></h3>
+                  <div class="state-description-hover"></div>
+                </td>
 
                 <% checkboxes = [] %>
                 <% @characters.each do |character| %>
