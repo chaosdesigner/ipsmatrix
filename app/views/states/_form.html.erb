@@ -37,11 +37,11 @@
       <% if @character.feature_type_id === 1 %>
 
         <div>
-          <b>Spodní hranice parametru:</b><br /><%= form.text_field :value_min, :required => true %>
+          <b>Spodní hranice parametru:</b><br><%= form.text_field :value_min, :required => true %>
         </div>
 
         <div>
-          <b>Horní hranice parametru:</b><br /><%= form.text_field :value_max, :required => true %>
+          <b>Horní hranice parametru:</b><br><%= form.text_field :value_max, :required => true %>
         </div>
 
       <% else %>
@@ -54,9 +54,9 @@
           <div><b>Fotografie znaku:</b></div>
           <% if (!@state.id.nil?) %>
             <% if (@state.image.attached?) %>
-              <%= image_tag url_for(@state.image), size: "300x300" %><br />
+              <%= image_tag url_for(@state.image), size: "300x300" %><br>
             <% else %>
-              <img src="/images/stop-icon-13421.png" width="300" height="300"><br />
+              <img src="/images/stop-icon-13421.png" width="300" height="300"><br>
             <% end %>
             <%= form.file_field :image %>
           <% else %>
