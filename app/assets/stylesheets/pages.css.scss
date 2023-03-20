@@ -14,6 +14,10 @@ h2 {
 h3 {
   margin: 0;
 }
+h3:before {
+  content: url(images/help-icon.png);
+  margin-right: 7px;
+}
 
 img.thumbnail {
   width: 100px;

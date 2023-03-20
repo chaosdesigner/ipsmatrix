@@ -85,7 +85,7 @@ Feature.create!([{
                  {
                    id: 6,
                    name_en: 'Number of spines on the side of declivity',
-                   name_cz: 'Počet zubů na okraji prohloubeniny na zadní části krovek',
+                   name_cz: 'Počet zubů na okraji prohloubeniny',
                    seq: 6
                  },
                  {
