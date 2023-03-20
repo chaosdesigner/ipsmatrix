@@ -122,7 +122,7 @@
           <!-- Numeric value box -->
 
           <div class="child">
-            <h3><%= feature.send(@name_attribute) %></h3>
+            <h3 class="feature-title"><%= feature.send(@name_attribute) %></h3>
             <div class="slider">
               <p><%= @characters.first.send(@desc_attribute) %>:</p><input id="character_<%= @characters.first.id %>" type="range" step="0.01" value="0" min="<%= sprintf "%.2f", sliderVals[0] %>" max="<%= sprintf "%.2f", sliderVals[1] %>">
               <div class="rangeValue">0</div><div class="reset" id="reset_<%= @characters.first.id %>">X</div>
@@ -137,7 +137,7 @@
             <table>
               <tr>
                 <td>
-                  <h3><%= feature.send(@name_attribute) %></h3>
+                <h3 class="feature-title"><%= feature.send(@name_attribute) %></h3>
                   <div class="state-description-hover"></div>
                 </td>
 

@@ -14,7 +14,7 @@ h2 {
 h3 {
   margin: 0;
 }
-h3:before {
+h3.feature-title:before {
   content: url(images/help-icon.png);
   margin-right: 7px;
 }
