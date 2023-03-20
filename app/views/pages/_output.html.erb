@@ -8,14 +8,14 @@
         <% @entities.each do |entity| %>
           <% if (entity.seq == 1) %>
             <% if session[:query].include? "#{entity.id}_2" %>
-              <td><img id="img_<%= entity.id %>" class="thumbnail species" src="images/<%= entity.name.gsub(' ', '_').downcase %>.jpg" onclick="openSpeciesInfo('<%= entity.name.gsub(' ', '_').downcase %>');" /></td>
+              <td><img alt="<%= entity.name %>" id="img_<%= entity.id %>" class="thumbnail species" src="images/<%= entity.name.gsub(' ', '_').downcase %>.jpg" onclick="openSpeciesInfo('<%= entity.name.gsub(' ', '_').downcase %>');" /></td>
             <% end %>
             <% if session[:query].include? "#{entity.id}_3" %>
-              <td><img id="img_<%= entity.id %>" class="thumbnail species" src="images/<%= entity.name.gsub(' ', '_').downcase %>.jpg" onclick="openSpeciesInfo('<%= entity.name.gsub(' ', '_').downcase %>');" /></td>
+              <td><img alt="<%= entity.name %>" id="img_<%= entity.id %>" class="thumbnail species" src="images/<%= entity.name.gsub(' ', '_').downcase %>.jpg" onclick="openSpeciesInfo('<%= entity.name.gsub(' ', '_').downcase %>');" /></td>
             <% end %>
           <% else %>
             <% if session[:query].include? "#{entity.id}_1" %>
-              <td><img id="img_<%= entity.id %>" class="thumbnail species" src="images/<%= entity.name.gsub(' ', '_').downcase %>.jpg" onclick="openSpeciesInfo('<%= entity.name.gsub(' ', '_').downcase %>');" /></td>
+              <td><img alt="<%= entity.name %>" id="img_<%= entity.id %>" class="thumbnail species" src="images/<%= entity.name.gsub(' ', '_').downcase %>.jpg" onclick="openSpeciesInfo('<%= entity.name.gsub(' ', '_').downcase %>');" /></td>
             <% end %>
           <% end %>
         <% end %>
