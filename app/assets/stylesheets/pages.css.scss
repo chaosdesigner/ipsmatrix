@@ -27,6 +27,54 @@ img.thumbnail {
   filter: grayscale(100%);
 }
 
+.species {
+  cursor: pointer;
+}
+
+#species-sheet {
+  background: var(--leaf5);
+  a {
+    color: var(--leaf1);
+  }
+  h4, h5 {
+    color: var(--leaf1);
+    margin: 0;
+    width: 50%;
+  }
+  p {
+    font-size: 11px;
+    margin-top: 0;
+  }
+  display: none;
+}
+
+.species-info {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: var(--leaf6);
+}
+
+.close-panel a {
+  text-decoration: none;
+  transition: 0.3s;
+  display: block;
+}
+.close-panel .closebtn {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  font-size: 36px;
+}
+
+#species-info {
+  width: 800px;
+  text-align: left;
+  .footer {
+    text-align: right;
+    padding: 5px;
+  }
+}
+
 .header {
   position: sticky;
   top: 0;
@@ -130,9 +178,9 @@ img.thumbnail {
 .slider {
   position: absolute;
   top :50%;
-  left: 63%;
+  left: 76%;
   transform: translate(-52%,-50%);
-  width: auto;
+  width: 40%;
   height: 60px;
   padding-left: 40px;
   background: #fcfcfc;
