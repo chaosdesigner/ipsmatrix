@@ -44,7 +44,7 @@ module ApplicationHelper
     entity = Entity.find(state.entity_id)
     img_description = feature.send(@name_attribute) + ': '
     img_description += character.send(@desc_attribute)
-    img_description += ' (' + entity.name + ')'
+    img_description += ' (' + entity.name + ')' unless feature.id === 10
     img_description
   end
 end

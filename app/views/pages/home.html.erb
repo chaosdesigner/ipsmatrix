@@ -115,7 +115,7 @@
       <h2>Maticový determinační klíč lýkožroutů rodu <i>Ips</i> České republiky</h2>
 
       <% @features.each do |feature| %>
-        <% @characters = Character.where(feature_id: feature.id) %>
+        <% @characters = Character.where(feature_id: feature.id).order('seq') %>
         
         <% if (@characters.first.feature_type_id == 1) %>
           <% sliderVals = getSliderValues(State.where(character_id: @characters.first.id)) %>

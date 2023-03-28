@@ -52,7 +52,7 @@
           <th class="row-header feature" colspan="9">&nbsp;<%= feature.send(@name_attribute) %></th>
         </tr>
 
-        <% Character.where(feature_id: feature.id).each do |character| %>
+        <% Character.where(feature_id: feature.id).order('seq').each do |character| %>
           <tr>
             <th class="row-header">&nbsp;-&nbsp;<%= character.send(@desc_attribute) %></th>
             <% @entities.each do |entity|
