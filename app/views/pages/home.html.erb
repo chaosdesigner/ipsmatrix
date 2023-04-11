@@ -46,14 +46,16 @@
     $('.slider input').on('input change paste keyup', function() {   
         $(this).closest('.slider').find('.rangeValue').html($(this).val());
         $(this).closest('.child').css('background-color', '#a9dfbc');
-        $.ajax({url: "/pages/output", data: $(this).attr('id') + '=' + $(this).val(), success: function(result) {
+        url = getUrlVars()['lang'] ? "/pages/output?lang=" + getUrlVars()['lang'] : "/pages/output";
+        $.ajax({url: url, data: $(this).attr('id') + '=' + $(this).val(), success: function(result) {
           $("#output").html(result);
         }});
     });
     $('.image_cell input').click(
       function () {
         data = $(this).is(":checked") ? $(this).attr('id') + '=1' : $(this).attr('id') + '=0'
-        $.ajax({url: "/pages/output", data: data, success: function(result) {
+        url = getUrlVars()['lang'] ? "/pages/output?lang=" + getUrlVars()['lang'] : "/pages/output";
+        $.ajax({url: url, data: data, success: function(result) {
           $("#output").html(result);
         }
       });
@@ -63,7 +65,8 @@
         $(this).closest('.slider').find('.rangeValue').html('0');
         $(this).closest('.slider').find('input').value = 0;
         $(this).closest('.child').css('background-color', '#e4e6d9');
-        $.ajax({url: "/pages/output", data: $(this).attr('id') + '=1', success: function(result) {
+        url = getUrlVars()['lang'] ? "/pages/output?lang=" + getUrlVars()['lang'] : "/pages/output";
+        $.ajax({url: url, data: $(this).attr('id') + '=1', success: function(result) {
           $("#output").html(result);
         }
       });
@@ -82,7 +85,8 @@
       height: '100%'
     });
     $('.species-info').hide();
-    $('#' + species).show();
+    lang = getUrlVars()['lang'] ? getUrlVars()['lang'] : "cz";
+    $('#' + species + '_' + lang).show();
     $('#species-sheet').show();
     window.scrollTo(0, 0);
   }
@@ -92,6 +96,17 @@
       height: '250px'
     });
     $('#species-sheet').hide();
+  }
+  function getUrlVars() {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
   }
 
 
@@ -106,13 +121,13 @@
 
   <div id="header">
     <span class="help-icon" onclick="openHelp();">&#9776;</span>
-    <span style="float: right;" class="language-icon">EN</span>
+    <span style="float: right;" class="language-icon"><%= displayLangIcon() %></span>
   </div>
 
   <div id="main-content" class="block">
     <div class="centered">
       <h1><i>Ips</i>Matrix &gt;</h1>
-      <h2>Maticový determinační klíč lýkožroutů rodu <i>Ips</i> České republiky</h2>
+      <h2><%= displayLangLabel(@language, 'app_name') %></h2>
 
       <% @features.each do |feature| %>
         <% @characters = Character.where(feature_id: feature.id).order('seq') %>

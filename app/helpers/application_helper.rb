@@ -1,6 +1,22 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+
+  LABELS = {
+    'app_name' => {
+      'cz' => 'Maticový determinační klíč lýkožroutů rodu <i>Ips</i> České republiky',
+      'en' => 'Matrix determination key for bark beetles of the genus <i>Ips</i> of the Czech Republic'
+    },
+    'selected_species' => {
+      'cz' => 'Vybrané druhy',
+      'en' => 'Selected species'
+    },
+    'ips_species' => {
+      'cz' => 'Druhy rodu <i>Ips</i>',
+      'en' => 'Species of genus <i>Ips</i>'
+    }
+  }
+
   def getSliderValues(states)
     [getSliderMinValue(states), getSliderMaxValue(states), (getSliderMinValue(states) + getSliderMaxValue(states)) / 2]
   end
@@ -46,5 +62,17 @@ module ApplicationHelper
     img_description += character.send(@desc_attribute)
     img_description += ' (' + entity.name + ')' unless feature.id === 10
     img_description
+  end
+
+  def displayLangIcon()
+    if (@language === 'cz')
+      "<a class='lang' href='/?lang=en'>EN</a>".html_safe
+    else
+      "<a class='lang' href='/?lang=cz'>CZ</a>".html_safe
+    end
+  end
+
+  def displayLangLabel(lang, label)
+    lang ? LABELS[label][lang].html_safe :  LABELS[label]['cz'].html_safe
   end
 end

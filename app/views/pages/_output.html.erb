@@ -1,5 +1,4 @@
-  <h3>Vybrané druhy</h3>
-
+  <h3><%= displayLangLabel(params[:lang], 'selected_species') %></h3>
   <% if session[:query] === [] %>
     <img id="no-results" src="/images/stop-icon-13421.png">
   <% else %>

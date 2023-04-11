@@ -343,3 +343,11 @@ img.thumbnail {
 .hidden {
   display: none;
 }
+
+.lang {
+  color: black;
+  text-decoration: none;
+  &:hover {
+    color: white;
+  }
+}

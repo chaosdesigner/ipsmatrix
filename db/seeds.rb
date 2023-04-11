@@ -197,8 +197,8 @@ Character.create!([{
                    {
                      feature_id: 4,
                      feature_type_id: 2,
-                     description_en: 'smooth shiny and not dotted',
-                     description_cz: 'hladké lesklé a netečkované',
+                     description_en: 'smooth, shiny and not dotted',
+                     description_cz: 'hladká, lesklá a netečkovaná',
                      seq: 4
                    },
                    {
