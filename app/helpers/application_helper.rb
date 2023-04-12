@@ -14,6 +14,10 @@ module ApplicationHelper
     'ips_species' => {
       'cz' => 'Druhy rodu <i>Ips</i>',
       'en' => 'Species of genus <i>Ips</i>'
+    },
+    'source' => {
+      'cz' => 'Zdroj',
+      'en' => 'Source'      
     }
   }
 
